@@ -6,7 +6,7 @@ class Home extends Component {
 
   componentDidMount() {
     axios.get('./api/retirees')
-    .then( res => this.state({ retirees: res.data }) )
+    .then(res => this.setState({ retirees: res.data }) )
   }
   sample = () => {
     const { retirees } = this.state
@@ -29,9 +29,9 @@ class Home extends Component {
             {retiree.name}
             </Card.Header>
             <Card.Description>
-              {retiree.age}
-              {retiree.can_walk}
-              {retiree.sex}
+              {retiree.age},
+              {retiree.can_walk},
+              {retiree.sex},
             </Card.Description>
             <Card.Meta>
               {retiree.marital_status}
