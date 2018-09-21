@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
-  serialize : Array
 
   def self.random_retiree(ids)
     ids = ids.empty? ? [0] :ids
