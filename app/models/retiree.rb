@@ -1,0 +1,2 @@
+class Retiree < ApplicationRecord
+end
