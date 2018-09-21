@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
 import { Header, Image, Card } from 'semantic-ui-react';
 import axios from 'axios';
+
 class Home extends Component {
   state = { retirees: []}
 
   componentDidMount() {
-    axios.get('./api/retirees')
-    .then(res => this.setState({ retirees: res.data }) )
+    axios.get('/api/retirees')
+    .then(res => { this.setState({ retirees: res.data }) })
   }
-  sample = () => {
-    const { retirees } = this.state
-    if (retirees.length) {
-      const index = Math.floor(Math.random() * retirees.length)
-      return retirees[index]
-    } else {
-      return null
-    }
+  retiree = () => {
+    const {retiree} = this.props
+    
+
   }
   
   render() {
-    const retiree = this.sample()
-    if (retiree) {
+    const { retirees } = this.state
       return ( 
         <Card key={retiree.id}>
         <Image src={retiree.avatar} />
@@ -29,9 +25,9 @@ class Home extends Component {
             {retiree.name}
             </Card.Header>
             <Card.Description>
-              {retiree.age},
-              {retiree.can_walk},
-              {retiree.sex},
+              {retiree.age} {' '}
+              {retiree.can_walk}{' '}
+              {retiree.sex}
             </Card.Description>
             <Card.Meta>
               {retiree.marital_status}
@@ -39,11 +35,9 @@ class Home extends Component {
             </Card.Content>
               </Card>
       ) 
-    } else {
-      return <Header textAlign="center">All Retirees Have Died</Header>
     }
   }
-}
+
 
 
 export default Home

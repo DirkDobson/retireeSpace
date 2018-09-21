@@ -7,8 +7,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-  def self.random_retiree(ids)
-    ids = ids.empty? ? [0] :ids
-    Cat.where("id NOT IN (?)", ids).order("RANDOM()")
-  end
+  
 end
