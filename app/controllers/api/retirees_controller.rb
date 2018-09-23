@@ -1,7 +1,7 @@
 class Api::RetireesController < ApplicationController
   before_action :authenticate_user!
   def index
-    render json: retirees = @Retiree.all
+    render json: Retiree.all
   end
 
   def update
