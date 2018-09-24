@@ -9,6 +9,7 @@ import Home from './Home';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
+import Post from './Post';
 
 class App extends Component {
   render() {
@@ -19,7 +20,7 @@ class App extends Component {
         <FetchUser>
           <Switch>
             <ProtectedRoute exact path='/' component={Home} />
-            <ProtectedRoute exact path='/posts' component={Posts} />
+            <ProtectedRoute exact path='/Post' component={Post} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <Route component={NoMatch} />

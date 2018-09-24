@@ -28,7 +28,19 @@ class NavBar extends Component {
         </Link>
       </Menu.Menu>
     );
-  }
+
+      return (
+        <div>
+          <Menu pointing secondary>
+            <Link to='/post'>
+              <Menu.Item name='post' />
+            </Link>
+            { this.rightNavs() }
+          </Menu>
+        </div>
+      );
+    }
+  
 
   render() {
     return (
@@ -36,6 +48,8 @@ class NavBar extends Component {
         <Menu pointing secondary>
           <Link to='/'>
             <Menu.Item name='home' />
+            <Link to='/post' />
+            <Menu.Item name='post' />
           </Link>
           { this.rightNavs() }
         </Menu>
